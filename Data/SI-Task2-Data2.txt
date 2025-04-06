@@ -1,0 +1,18 @@
+Interval:	a=2;
+		b=3;
+Nodes i=0...	n=3;
+
+Function	y1=x+cos(x)
+
+Interval:	a=2;
+		b=10;
+Nodes i=0...	n=3;
+
+Function	y1=sin(x)+cos(x)
+
+
+
+
+
+
+
