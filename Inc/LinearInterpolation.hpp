@@ -5,6 +5,30 @@
 #ifndef LINEARINTERPOLATION_HPP
 #define LINEARINTERPOLATION_HPP
 
+#include "Point.hpp"
+#include "Data.hpp"
+
+class LinearInterpolation final
+{
+  public:
+      LinearInterpolation() = default;
+      LinearInterpolation(LinearInterpolation const&) = default;
+      LinearInterpolation(LinearInterpolation&&) = default;
+      LinearInterpolation(Data Nodes, std::size_t interpolationDensity);
+      LinearInterpolation& operator=(LinearInterpolation const&) = default;
+      LinearInterpolation& operator=(LinearInterpolation&&) = default;
+
+
+
+      ~LinearInterpolation() = default;
+
+  private:
+      Data
+      Data nodes_;
+      std::size_t interpolationDensity_;
+
+};
+/*
 class linearInterpolation : public data
 {
 public:
@@ -74,5 +98,6 @@ private:
     const double scaleFactor_;
     std::vector<point> interpolatedData_;
 };
+*/
 
 #endif //LINEARINTERPOLATION_HPP
