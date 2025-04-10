@@ -5,4 +5,7 @@
 #ifndef LAGRANGEPOLYNOMIALINTERPOLATION_HPP
 #define LAGRANGEPOLYNOMIALINTERPOLATION_HPP
 
+#include "Data.hpp"
+
+struct LagrangePolynomialInterpolation : public Data {};
 #endif //LAGRANGEPOLYNOMIALINTERPOLATION_HPP
