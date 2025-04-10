@@ -12,10 +12,12 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 find_package(Matplot++ CONFIG REQUIRED)
 find_package(Catch2 3 REQUIRED)
 
+add_subdirectory(Libs/Linspain)
+
 add_library(LinearInterpolation STATIC Src/LinearInterpolation.cpp)
 target_compile_features(LinearInterpolation PUBLIC cxx_std_20)
 target_include_directories(LinearInterpolation PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Inc)
-target_link_libraries(LinearInterpolation PRIVATE Point Data)
+target_link_libraries(LinearInterpolation PRIVATE Point Data Linspain)
 
 add_library(CubicSplineInterpolation STATIC Src/CubicSplineInterpolation.cpp)
 target_compile_features(CubicSplineInterpolation PUBLIC cxx_std_20)
@@ -38,6 +40,7 @@ add_subdirectory(../Data-clustering/Libs/Files_tools
 
 add_subdirectory(../Data-clustering/Libs/Ploting_tools
                  ${CMAKE_BINARY_DIR}/Ploting_tools-build)
+
 
 find_package(Catch2 CONFIG REQUIRED)
 
