@@ -9,19 +9,11 @@
 #include "Data.hpp"
 #include "Point.hpp"
 
-
-struct Linspain final : Data
+struct Linspain: Data
 {
-    Linspain(const Point& first, const Point& second, const size_t& numPoints)
-        : Data(numPoints, Point{0.0, 0.0})
-    {
-        Data::operator[](0ull) = first;
-        Data::operator[](Data::size() - 1ull) = second;
-        const Point delta = (second - first) / (numPoints - 1ull);
-        for (std::size_t i = 1ull; i < Data::size() - 1ull; ++i)
-        {
-            Data::operator[](i) = Data::operator[](i - 1ull) + delta;
-        };
-    }
+    Linspain(const Point& first, const Point& second, const std::size_t& numPointsBetween, const bool lastPoint=true);
+    bool isIncludeLastPoint() const;
+private:
+    const bool last_point_;
 };
 #endif //LINSPAIN_HPP
