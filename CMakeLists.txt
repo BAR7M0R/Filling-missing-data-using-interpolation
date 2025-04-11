@@ -12,7 +12,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 find_package(Matplot++ CONFIG REQUIRED)
 find_package(Catch2 3 REQUIRED)
 
-add_subdirectory(Libs/Linspain)
+add_subdirectory(Libs/Cubicspline)
 
 add_library(LinearInterpolation STATIC Src/LinearInterpolation.cpp)
 target_compile_features(LinearInterpolation PUBLIC cxx_std_20)
@@ -30,17 +30,22 @@ target_include_directories(LagrangePolynomialInterpolation PUBLIC Inc)
 target_link_libraries(LagrangePolynomialInterpolation PRIVATE Point Data)
 
 add_subdirectory(../Data-clustering/Libs/Point
-                 ${CMAKE_BINARY_DIR}/Point-build)
+        ${CMAKE_BINARY_DIR}/Point-build)
 
 add_subdirectory(../Data-clustering/Libs/Data
-                 ${CMAKE_BINARY_DIR}/Data-build)
+        ${CMAKE_BINARY_DIR}/Data-build)
+
+add_subdirectory(../Data-clustering/Libs/Linspain
+        ${CMAKE_BINARY_DIR}/Linspain-build)
 
 add_subdirectory(../Data-clustering/Libs/Files_tools
-                 ${CMAKE_BINARY_DIR}/Files_tools-build)
+        ${CMAKE_BINARY_DIR}/Files_tools-build)
 
 add_subdirectory(../Data-clustering/Libs/Ploting_tools
-                 ${CMAKE_BINARY_DIR}/Ploting_tools-build)
+        ${CMAKE_BINARY_DIR}/Ploting_tools-build)
 
+add_subdirectory(../Data-clustering/Libs/Data_tools
+        ${CMAKE_BINARY_DIR}/Data_tools-build)
 
 find_package(Catch2 CONFIG REQUIRED)
 
@@ -48,8 +53,8 @@ add_executable(my_tests
         Tests/CubicSplinelInterpolation_tests.cpp
         Tests/LagrangePolynomialInterpolation_tests.cpp
         Tests/LineInterpolation_tests.cpp
-        Libs/Linspain/Tests/Linspain_tests.cpp
-        Libs/Spline/Tests/Spline_tests.cpp)
+        ../Data-clustering/Libs/Linspain/Tests/Linspain_tests.cpp
+        Libs/Cubicspline/Tests/Cubicspline_tests.cpp)
 
 target_compile_features(my_tests PRIVATE cxx_std_20)
 target_include_directories(my_tests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/Inc)
