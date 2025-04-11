@@ -13,4 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-#include "Spline.hpp"
+#ifndef SPLINE_HPP
+#define SPLINE_HPP
+
+#include "Data.hpp"
+#include "Point.hpp"
+
+class Cubicspline final : public Data
+{
+public:
+    Cubicspline(const Point &first,
+                const double &firstDeriv,
+                const Point &second,
+                const double &secondDeriv,
+                const std::size_t &numPointsBetween,
+                bool isIncludeLastPoint = true);
+private:
+  data_axi A;
+  data_axi B;
+  data_axi C;
+  data_axi D;
+
+};
+
+#endif //SPLINE_HPP
