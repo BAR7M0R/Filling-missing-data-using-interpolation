@@ -14,8 +14,9 @@
  * limitations under the License.
  ******************************************************************************/
 #include "LinearInterpolation.hpp"
+#include "Linspain.hpp"
 
- LinearInterpolation::LinearInterpolation(const Data Nodes, const std::size_t interpolationDensity): Data()
+ LinearInterpolation::LinearInterpolation(const Data& Nodes, const std::size_t interpolationDensity):Data()
   , nodesIndexes_(Nodes.size(), 0ull)
   , interpolationDensity_(interpolationDensity) {
   for (std::size_t i = 1ull; i < getNumberOfNodes(); i++) {

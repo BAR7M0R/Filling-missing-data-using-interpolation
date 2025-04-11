@@ -20,7 +20,7 @@
 #include <cstdint>
 
 #include "Data.hpp"
-#include "Linspain.hpp"
+
 
 struct LinearInterpolation final : Data
 {
