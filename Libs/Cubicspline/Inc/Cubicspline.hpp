@@ -33,7 +33,6 @@ private:
   data_axi B;
   data_axi C;
   data_axi D;
-
 };
 
 #endif //SPLINE_HPP

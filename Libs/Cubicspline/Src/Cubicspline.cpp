@@ -27,19 +27,19 @@ Cubicspline::Cubicspline(const Point &first,
                 const std::size_t &numPointsBetween,
                 const bool isIncludeLastPoint)
     : Data(Linspain(first, second, numPointsBetween, isIncludeLastPoint))
-    , A(DataTools::convertDataXToAxi(*this, [&](const double& p) -> double {
-            return (p - second.getX())/(first.getX()-second.getX());
+    , A(DataTools::convertDataXToAxi(*this, [&](double& p) {
+            p = (p - second.getX())/(first.getX()-second.getX());
           }))
-    , B(DataTools::convertDataXToAxi(*this, [&](const double& p) -> double {
-            return (p - first.getX())/(first.getX()-second.getX());
+    , B(DataTools::convertDataXToAxi(*this, [&](double& p) {
+            p = (p - first.getX())/(first.getX()-second.getX());
           }))
-    , C(DataTools::convertAxiToAxi(A, [&](const double &p) -> double {
-            return ((1.0/6.0)
+    , C(DataTools::convertAxiToAxi(A, [&](double &p) {
+            p = ((1.0/6.0)
                        * (pow(p,3)-p)
                        * pow(second.getX()-first.getX(), 2));
           }))
-    , D(DataTools::convertAxiToAxi(B, [&](const double &p) -> double {
-            return ((1.0/6.0)
+    , D(DataTools::convertAxiToAxi(B, [&](double &p) {
+            p = ((1.0/6.0)
                        * (pow(p,3)-p)
                        * pow(second.getX()-first.getX(), 2));
           }))
