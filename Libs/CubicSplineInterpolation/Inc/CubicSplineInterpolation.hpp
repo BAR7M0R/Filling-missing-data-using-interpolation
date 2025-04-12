@@ -18,8 +18,11 @@
 #define SPLINEINTERPOLATION_HPP
 
 #include "Data.hpp"
+#include "Cubicspline.hpp"
 
-struct CubicSpinelInterpolation : public Data {};
+struct CubicSpinelInterpolation : Data {
+  CubicSpinelInterpolation(Data nodes);
+};
 
 //class splineInterpolation : public data
 //{
