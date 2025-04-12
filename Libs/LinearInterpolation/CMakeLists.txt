@@ -1,0 +1,4 @@
+add_library(LinearInterpolation STATIC Src/LinearInterpolation.cpp)
+target_compile_features(LinearInterpolation PUBLIC cxx_std_20)
+target_include_directories(LinearInterpolation PUBLIC Inc)
+target_link_libraries(LinearInterpolation PRIVATE Point Data Linspain)

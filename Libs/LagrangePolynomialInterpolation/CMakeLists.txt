@@ -1,0 +1,4 @@
+add_library(LagrangePolynomialInterpolation STATIC Src/LagrangePolynomialInterpolation.cpp)
+target_compile_features(LagrangePolynomialInterpolation PUBLIC cxx_std_20)
+target_include_directories(LagrangePolynomialInterpolation PUBLIC Inc)
+target_link_libraries(LagrangePolynomialInterpolation PRIVATE Point Data)

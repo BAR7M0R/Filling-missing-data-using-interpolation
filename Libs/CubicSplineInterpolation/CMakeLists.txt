@@ -1,0 +1,4 @@
+add_library(CubicSplineInterpolation STATIC Src/CubicSplineInterpolation.cpp)
+target_compile_features(CubicSplineInterpolation PUBLIC cxx_std_20)
+target_include_directories(CubicSplineInterpolation PUBLIC Inc)
+target_link_libraries(CubicSplineInterpolation PRIVATE Data Cubicspline)
