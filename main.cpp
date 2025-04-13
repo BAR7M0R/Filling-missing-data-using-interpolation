@@ -2,9 +2,9 @@
 // Created by Dell on 05/04/2025.
 //
 //#include "Point"
-#include "LinearInterpolation"
+//#include "LinearInterpolation.hpp"
 int main() {
-    const linearInterpolation interpolatedLineary({ point(1,1),point(2,9),point(3,27), point(4, 81) }, 10);
+    //const LinearInterpolation interpolatedLineary({ point(1,1),point(2,9),point(3,27), point(4, 81) }, 10);
     //const splineInterpolation interpolatedSpline({ point(1,1),point(2,9),point(3,27), point(4, 81) }, 10);
    // matplot::scatter(interpolatedLineary.getX(), interpolatedLineary.getY());
     //matplot::hold(matplot::on);
