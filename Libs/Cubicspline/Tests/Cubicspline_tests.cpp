@@ -19,11 +19,26 @@
 #include "Cubicspline.hpp"
 
 struct Cubicspline_tests {
-    static std::vector<double> get_private_A(const Cubicspline& obj) {
+    static data_axi get_private_A(const Cubicspline& obj) {
         return obj.A;
+    }
+    static data_axi get_private_B(const Cubicspline& obj) {
+        return obj.B;
+    }
+    static data_axi get_private_C(const Cubicspline& obj) {
+        return obj.C;
+    }
+    static data_axi get_private_D(const Cubicspline& obj) {
+        return obj.D;
     }
 };
 
 TEST_CASE("dummy test") {
-    REQUIRE(true == true);
+    Cubicspline cspl(Point(1.0, 1.0), 0.0 , Point(4.0, 2.0), 1.0, 8, true);
+    auto A = Cubicspline_tests::get_private_A(cspl);
+    auto B = Cubicspline_tests::get_private_B(cspl);
+    auto C = Cubicspline_tests::get_private_C(cspl);
+    auto D = Cubicspline_tests::get_private_D(cspl);
+    auto out = cspl.get();
+    REQUIRE(cspl.size() == 10);
 }
