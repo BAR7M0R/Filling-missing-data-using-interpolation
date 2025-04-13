@@ -20,33 +20,33 @@
 #include <ranges>
 #include "Data_tools.hpp"
 
-Cubicspline::Cubicspline(const Point &first,
-                const double &firstDeriv,
-                const Point &second,
-                const double &secondDeriv,
+Cubicspline::Cubicspline(const Point &p0,
+                const double &p0_first_deriv,
+                const Point &p1,
+                const double &p1_second_deriv,
                 const std::size_t &numPointsBetween,
                 const bool isIncludeLastPoint)
-    : Data(Linspain(first, second, numPointsBetween, isIncludeLastPoint))
+    : Data(Linspain(p0, p1, numPointsBetween, isIncludeLastPoint))
     , A(DataTools::convertDataXToAxi(*this, [&](double& p) {
-            p = (p - second.getX())/(first.getX()-second.getX());
+            p = (p - p1.getX())/(p0.getX()-p1.getX());
           }))
     , B(DataTools::convertDataXToAxi(*this, [&](double& p) {
-            p = (p - first.getX())/(first.getX()-second.getX());
+            p = (p - p0.getX())/(p1.getX()-p0.getX());
           }))
     , C(DataTools::convertAxiToAxi(A, [&](double &p) {
             p = ((1.0/6.0)
                        * (pow(p,3)-p)
-                       * pow(second.getX()-first.getX(), 2));
+                       * pow(p1.getX()-p0.getX(), 2));
           }))
     , D(DataTools::convertAxiToAxi(B, [&](double &p) {
             p = ((1.0/6.0)
                        * (pow(p,3)-p)
-                       * pow(second.getX()-first.getX(), 2));
+                       * pow(p1.getX()-p0.getX(), 2));
           }))
 {
     for(std::size_t i = 0; i < size(); ++i)
     {
         (*this)[i] = Point((*this)[i].getX(),
-                           A[i]*first.getY()+B[i]*second.getY()+C[i]*firstDeriv+D[i]*secondDeriv);
+                           A[i]*p0.getY()+B[i]*p1.getY()+C[i]*p0_first_deriv+D[i]*p1_second_deriv);
     }
 }

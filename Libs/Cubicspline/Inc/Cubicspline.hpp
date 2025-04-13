@@ -22,20 +22,21 @@
 class Cubicspline final : public Data
 {
 public:
-    Cubicspline(const Point &first,
-                const double &firstDeriv,
-                const Point &second,
-                const double &secondDeriv,
+    Cubicspline(const Point &p0,
+                const double &p0_first_deriv,
+                const Point &p1,
+                const double &p1_second_deriv,
                 const std::size_t &numPointsBetween,
                 bool isIncludeLastPoint = true);
-    #ifndef TESTS
-    friend class Cubicspline_tests;
-    #endif
+
 private:
-  data_axi A;
-  data_axi B;
-  data_axi C;
-  data_axi D;
+//#ifndef TESTS
+    friend struct Cubicspline_tests;
+//#endif
+    data_axi A;
+    data_axi B;
+    data_axi C;
+    data_axi D;
 };
 
 #endif //SPLINE_HPP
