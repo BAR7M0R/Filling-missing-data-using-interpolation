@@ -13,3 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#include <catch2/catch_test_macros.hpp>
+
+#include <vector>
+#include "LinearInterpolation.hpp"
+
+
+TEST_CASE("dummy test 213") {
+    REQUIRE(true == true);
+}

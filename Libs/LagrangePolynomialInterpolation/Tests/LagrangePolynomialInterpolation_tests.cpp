@@ -13,3 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#include <catch2/catch_test_macros.hpp>
+
+TEST_CASE("dummy test") {
+    REQUIRE(true == true);
+}

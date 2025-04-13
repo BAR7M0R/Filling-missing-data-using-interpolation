@@ -1,4 +1,4 @@
 add_library(Cubicspline STATIC Src/Cubicspline.cpp)
 target_compile_features(Cubicspline PUBLIC cxx_std_20)
 target_include_directories(Cubicspline PUBLIC Inc)
-target_link_libraries(Cubicspline PRIVATE Data_tools Linspain)
+target_link_libraries(Cubicspline PRIVATE Linspain Data_tools)

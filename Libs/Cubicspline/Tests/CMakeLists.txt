@@ -1,0 +1,7 @@
+find_package(Catch2 3 REQUIRED)
+add_executable(Cubicspline_tests Cubicspline_tests.cpp)
+target_link_libraries(Cubicspline_tests PRIVATE Cubicspline Data)
+target_link_libraries(Cubicspline_tests PRIVATE Catch2::Catch2WithMain)
+include(CTest)
+include(Catch)
+add_test(NAME Cubicspline COMMAND Cubicspline_tests)

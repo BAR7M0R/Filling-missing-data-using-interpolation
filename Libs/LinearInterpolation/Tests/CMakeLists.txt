@@ -1,0 +1,7 @@
+find_package(Catch2 3 REQUIRED)
+add_executable(LineInterpolation_tests LineInterpolation_tests.cpp)
+target_link_libraries(LineInterpolation_tests PRIVATE LinearInterpolation Data)
+target_link_libraries(LineInterpolation_tests PRIVATE Catch2::Catch2WithMain)
+include(CTest)
+include(Catch)
+add_test(NAME Line_Interpolation COMMAND LineInterpolation_tests)

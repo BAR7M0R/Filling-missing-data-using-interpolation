@@ -1,0 +1,7 @@
+find_package(Catch2 3 REQUIRED)
+add_executable(CubicSplineInterpolation_tests CubicSplineInterpolation_tests.cpp)
+target_link_libraries(CubicSplineInterpolation_tests PRIVATE CubicSplineInterpolation Cubicspline Data)
+target_link_libraries(CubicSplineInterpolation_tests PRIVATE Catch2::Catch2WithMain)
+include(CTest)
+include(Catch)
+add_test(NAME Cubicspline_Interpolation COMMAND CubicSplineInterpolation_tests)

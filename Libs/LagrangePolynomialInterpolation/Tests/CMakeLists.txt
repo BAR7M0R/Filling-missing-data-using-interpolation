@@ -1,0 +1,7 @@
+find_package(Catch2 3 REQUIRED)
+add_executable(LagrangePolynomialInterpolation_tests LagrangePolynomialInterpolation_tests.cpp)
+target_link_libraries(LagrangePolynomialInterpolation_tests PRIVATE Cubicspline Data)
+target_link_libraries(LagrangePolynomialInterpolation_tests PRIVATE Catch2::Catch2WithMain)
+include(CTest)
+include(Catch)
+add_test(NAME Lagrange_Polynomial_Interpolation COMMAND LagrangePolynomialInterpolation_tests)

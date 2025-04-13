@@ -13,3 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+#include <catch2/catch_test_macros.hpp>
+
+#include <vector>
+#include "Cubicspline.hpp"
+
+struct Cubicspline_tests {
+    static std::vector<double> get_private_A(const Cubicspline& obj) {
+        return obj.A;
+    }
+};
+
+TEST_CASE("dummy test") {
+    REQUIRE(true == true);
+}
