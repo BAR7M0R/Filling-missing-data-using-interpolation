@@ -21,7 +21,10 @@
 #include "Cubicspline.hpp"
 
 struct CubicSpinelInterpolation : Data {
-  CubicSpinelInterpolation(Data nodes);
+    explicit CubicSpinelInterpolation(Data nodes);
+#ifdef TESTS
+    friend class CubicSpinelInterpolation_tests;
+#endif
 };
 
 //class splineInterpolation : public data

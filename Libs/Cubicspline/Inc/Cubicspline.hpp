@@ -28,6 +28,9 @@ public:
                 const double &secondDeriv,
                 const std::size_t &numPointsBetween,
                 bool isIncludeLastPoint = true);
+    #ifndef TESTS
+    friend class Cubicspline_tests;
+    #endif
 private:
   data_axi A;
   data_axi B;

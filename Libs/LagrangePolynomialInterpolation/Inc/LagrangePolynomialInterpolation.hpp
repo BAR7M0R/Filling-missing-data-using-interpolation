@@ -19,5 +19,10 @@
 
 #include "Data.hpp"
 
-struct LagrangePolynomialInterpolation : public Data {};
+struct LagrangePolynomialInterpolation : public Data {
+  public:
+    #ifdef TESTS
+    friend class LagrangePolynomialInterpolation_tests;
+    #endif
+};
 #endif //LAGRANGEPOLYNOMIALINTERPOLATION_HPP

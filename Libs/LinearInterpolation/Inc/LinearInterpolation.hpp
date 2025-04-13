@@ -27,7 +27,9 @@ struct LinearInterpolation final : Data
     LinearInterpolation(const Data& Nodes, std::size_t interpolationDensity);
 
     [[nodiscard]] std::size_t getNumberOfNodes() const;
-
+#ifdef TESTS
+    friend class LinearInterpolation_tests;
+#endif
 private:
     std::vector<uint64_t> nodesIndexes_;
     std::size_t interpolationDensity_;
