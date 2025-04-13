@@ -24,7 +24,7 @@
 
 struct LinearInterpolation final : Data
 {
-    LinearInterpolation(Data Nodes, std::size_t interpolationDensity);
+    LinearInterpolation(const Data& Nodes, std::size_t interpolationDensity);
 
     [[nodiscard]] std::size_t getNumberOfNodes() const;
 
