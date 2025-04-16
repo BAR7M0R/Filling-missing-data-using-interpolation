@@ -22,9 +22,6 @@
 
 struct CubicSpinelInterpolation : Data {
     explicit CubicSpinelInterpolation(Data nodes);
-#ifdef TESTS
-    friend class CubicSpinelInterpolation_tests;
-#endif
 };
 
 //class splineInterpolation : public data

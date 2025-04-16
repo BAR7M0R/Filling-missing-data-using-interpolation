@@ -17,11 +17,12 @@
 
 #include "CubicSplineInterpolation.hpp"
 
-struct CubicSplineInterpolation_tests
-{
-  CubicSplineInterpolation_tests();
-};
 
-TEST_CASE("dummy test") {
+TEST_CASE("dummy test")
+{
+    const Data test1({{-3.0,4.0},{-1.0,-5.0},{1.0,-3.0},{1.5,4.0}});
+    CubicSpinelInterpolation csi(test1);
+    auto x = csi.getX();
+    auto y = csi.getY();
     REQUIRE(true == true);
 }
