@@ -16,8 +16,6 @@
 #include "Cubicspline.hpp"
 #include "Linspain.hpp"
 #include <cmath>
-#include <algorithm>
-#include <ranges>
 #include "Data_tools.hpp"
 
 Cubicspline::Cubicspline(const Point &p0,
