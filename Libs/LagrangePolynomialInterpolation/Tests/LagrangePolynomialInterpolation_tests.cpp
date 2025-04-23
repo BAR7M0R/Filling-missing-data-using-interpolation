@@ -14,7 +14,13 @@
  * limitations under the License.
  ******************************************************************************/
 #include <catch2/catch_test_macros.hpp>
-
-TEST_CASE("dummy test") {
+#include "Data.hpp"
+#include "LagrangePolynomialInterpolation.hpp"
+TEST_CASE("dummy test")
+{
+    Data test1({{-3.0,4.0},{-1.0,-5.0},{1.0,-3.0},{1.5,4.0}});
+    LagrangePolynomialInterpolation csi(test1);
+    auto x = csi.getX();
+    auto y = csi.getY();
     REQUIRE(true == true);
 }
