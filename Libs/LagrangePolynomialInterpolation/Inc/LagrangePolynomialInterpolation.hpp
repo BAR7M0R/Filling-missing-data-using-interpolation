@@ -18,11 +18,12 @@
 #define LAGRANGEPOLYNOMIALINTERPOLATION_HPP
 
 #include "Data.hpp"
+#include <numeric>
+#include <ranges>
+#include <algorithm>
 
 struct LagrangePolynomialInterpolation : public Data {
   public:
-    #ifdef TESTS
-    friend class LagrangePolynomialInterpolation_tests;
-    #endif
+    LagrangePolynomialInterpolation(Data& nodes);
 };
 #endif //LAGRANGEPOLYNOMIALINTERPOLATION_HPP
